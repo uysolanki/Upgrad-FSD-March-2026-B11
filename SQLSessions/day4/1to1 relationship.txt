@@ -19,3 +19,10 @@ values
 ('Vijay',45,'male'),
 ('Mamta',65,'female'),
 ('Jaya',70,'female');
+
+insert into state(sname,area,capital,cmno)
+values
+('Maharashtra',100,'Mumbai',1),
+('Tamil Nadu',80,'Chennai',2),
+('West Bengal',200,'Kolkata',3),
+('Karnataka',90,'Bengaluru',4);
