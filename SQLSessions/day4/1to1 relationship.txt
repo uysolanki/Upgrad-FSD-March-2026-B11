@@ -1,0 +1,21 @@
+create table cm(
+cmno int primary key  auto_increment,
+cmname varchar(15) not null,
+cmage int,
+cmgen enum('male','female'));
+
+create table state(
+sno int primary key  auto_increment,
+sname varchar(15) not null,
+area int,
+capital varchar(15),
+cmno int,
+foreign key(cmno) references cm(cmno));
+
+
+insert into cm(cmname,cmage,cmgen)
+values
+('Fadnavis',57,'male'),
+('Vijay',45,'male'),
+('Mamta',65,'female'),
+('Jaya',70,'female');

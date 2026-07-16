@@ -1,0 +1,101 @@
+-- display name of employee earning Rs 1200
+
+select ename
+from emp
+where salary=1200;
+
+-- display maximum salary 
+
+select max(salary)
+from emp;
+
+
+-- display name of employee earning maximum salary 
+
+select ename
+from emp
+where salary=(select max(salary)
+from emp);
+
+-- display employee names who are eaning greater than the avg sal of Pune
+
+select ename 
+from emp 
+where salary >
+(select avg(salary) 
+from emp 
+where city like 'Pune');
+
+
+-- display employee names who are eaning greater than the avg sal of Pune and not staying in Pune
+
+SELECT ename
+FROM emp
+WHERE salary > (
+SELECT avg( salary )
+FROM emp
+WHERE city LIKE 'Pune' )
+AND city NOT
+IN (
+'Pune'
+)
+
+
+-- display name of females who are earning more than the average salary of males
+SELECT ename
+FROM emp
+WHERE salary > (
+SELECT avg( salary )
+FROM emp
+WHERE gender like 'male' )
+AND gender like 'female';
+
+
+-- display name of employee earning more than all the employees from Pune
+SELECT ename
+FROM emp
+WHERE salary >
+ALL (
+SELECT salary
+FROM emp
+WHERE city LIKE 'Pune'
+);
+
+
+-- display name of employee earning more than anyone of the employees from Pune
+SELECT ename
+FROM emp
+WHERE salary >
+ANY (
+SELECT salary
+FROM emp
+WHERE city LIKE 'Pune'
+);
+
+
+
+--  display name of employees living in Pune of Mumbai
+select ename from emp
+where city like 'Pune' 
+or city like 'Mumbai';
+
+or
+
+select ename from emp
+where city in('Pune','Mumbai');
+
+
+display gender wise count of employees
+
+SELECT gender, count( * )
+FROM emp
+GROUP BY gender
+
+
+display gender wise average salary
+
+SELECT gender, avg(salary)
+FROM emp
+GROUP BY gender
+
+
