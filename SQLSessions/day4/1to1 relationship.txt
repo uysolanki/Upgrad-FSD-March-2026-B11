@@ -33,3 +33,33 @@ values
 SELECT cmname, sname
 FROM cm, state
 WHERE state.cmno = cm.cmno
+
+-- display me the names of states whose cm is a male
+
+select sname
+from cm c, state s
+where s.cmno=c.cmno
+and
+cmgen like 'male';
+
+-- display me the names of states whose cm above 60 years of age
+
+SELECT sname
+FROM cm c, state s
+WHERE s.cmno = c.cmno
+AND cmage>60;
+
+-- display  number of states ruled by each gender
+select cmgen,count(*)
+from state s,cm c
+where s.cmno=c.cmno
+group by cmgen;
+
+
+-- display me the names of states whose cm above 60 years of age (using joins)
+SELECT sname
+FROM cm c
+join 
+state s
+on s.cmno = c.cmno
+AND cmage>60;
