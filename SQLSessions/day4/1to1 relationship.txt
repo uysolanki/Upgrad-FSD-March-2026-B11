@@ -26,3 +26,10 @@ values
 ('Tamil Nadu',80,'Chennai',2),
 ('West Bengal',200,'Kolkata',3),
 ('Karnataka',90,'Bengaluru',4);
+
+
+-- display the cmname & the state he/she is governing
+
+SELECT cmname, sname
+FROM cm, state
+WHERE state.cmno = cm.cmno
