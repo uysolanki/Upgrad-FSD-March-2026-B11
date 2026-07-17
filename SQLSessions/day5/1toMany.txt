@@ -1,0 +1,52 @@
+create table dept(
+dno int primary key  auto_increment,
+dname varchar(15) not null,
+city varchar(15) not null);
+
+create table empl(
+eno int primary key  auto_increment,
+ename varchar(15) not null,
+salary int,
+gender enum('male','female'),
+dno int,
+foreign key(dno) references dept(dno));
+
+
+insert into dept(dname,city)
+values
+('IT','Pune'),
+('Sales','Delhi'),
+('Mark','Mumbai'),
+('Finance','Jaipur');
+
+insert into empl(ename,salary,gender,dno)
+values
+('Alice',800,'female',1),
+('Ben',900,'male',1),
+('Chris',1000,'male',2),
+('Emily',1100,'female',2),
+('Frank',1200,'male',3);
+
+-- join the dept and empl table 
+
+select *
+from dept
+join
+empl
+on dept.dno=empl.dno;
+
+-- display department wise count of employees
+
+select dname,count(*) as 'Number of Employees'
+from dept
+join
+empl
+on dept.dno=empl.dno
+group by dname;
+
+-- display department wise count of employees having more than 1 employee
+SELECT dname, count( * ) AS 'Number of Employees'
+FROM dept
+JOIN empl ON dept.dno = empl.dno
+GROUP BY dname
+HAVING count( * ) >1
