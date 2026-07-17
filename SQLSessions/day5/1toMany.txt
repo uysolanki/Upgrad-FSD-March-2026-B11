@@ -50,3 +50,37 @@ FROM dept
 JOIN empl ON dept.dno = empl.dno
 GROUP BY dname
 HAVING count( * ) >1
+
+
+-- display department wise total salary
+SELECT dname, sum(salary) AS 'Total Salary'
+FROM dept
+JOIN empl ON dept.dno = empl.dno
+GROUP BY dname;
+
+-- display department wise total salary in desc order of the total salary
+SELECT dname, sum(salary) AS 'Total Salary'
+FROM dept
+JOIN empl ON dept.dno = empl.dno
+GROUP BY dname
+order by sum(salary) desc;
+
+
+-- display department name whose total salary > 2000
+SELECT dname, sum( salary ) AS 'Total Salary'
+FROM dept
+JOIN empl ON dept.dno = empl.dno
+GROUP BY dname
+having sum( salary )>2000;
+
+
+-- create 1 to M tables
+1 (team table - tid , tname,ownername)
+M (player table - pid ,pname, matchesplayed, runsscored)
+
+questions 1) display teamwise count of players
+questions 2) display teamwise sum of runs
+questions 3) display teamwise avergae of runs
+questions 4) display team names whose avg > 40
+
+
