@@ -1,0 +1,66 @@
+left join
+
+select dname as 'department name'
+from dept
+left join
+empl
+on dept.dno=empl.dno
+where ename is null;
+
+
+Many to Many
+
+create table actor(
+ano int primary key auto_increment,
+aname varchar(20),
+gender enum('male','female'));
+
+
+create table movie(
+mno int primary key auto_increment,
+mname varchar(20),
+ryear int);
+
+
+create table actmov(
+ano int,
+mno int,
+foreign key(ano) references actor(ano),
+foreign key(mno) references movie(mno));
+
+
+
+insert into actor(aname,gender)
+values
+('SRK','male'),
+('DP','female'),
+('SK','male'),
+('AK','male'),
+('PC','female');
+
+
+insert into movie(mname,ryear)
+values
+('CE',2010),
+('Jawan',2024),
+('Don',2005),
+('Karan Arjun',1995),
+('RR',2008);
+
+insert into actmov(ano,mno)
+values
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(2,1),
+(3,4),
+(4,5);
+
+
+select * 
+from actor 
+join actmov
+on actor.ano=actmov.ano
+join movie
+on movie.mno=actmov.mno;
