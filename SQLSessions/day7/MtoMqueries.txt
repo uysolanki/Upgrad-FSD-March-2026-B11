@@ -31,13 +31,15 @@ SELECT *
 FROM actor
 LEFT JOIN actmov ON actor.ano = actmov.ano;
 
-2nd   -- row filter
+-- row filter
+2nd  
 SELECT *
 FROM actor
 LEFT JOIN actmov ON actor.ano = actmov.ano
 where mno is null;
 
-SELECT aname  -- column filtering
+-- column filtering
+SELECT aname  
 FROM actor
 LEFT JOIN actmov ON actor.ano = actmov.ano
 where mno is null;
