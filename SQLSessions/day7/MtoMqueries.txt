@@ -1,0 +1,24 @@
+select *
+from actor
+join
+actmov
+on actor.ano=actmov.ano;
+
+SELECT aname, count( * )
+FROM actor
+JOIN actmov ON actor.ano = actmov.ano
+GROUP BY aname
+
+
+SELECT aname, count( * )
+FROM actor
+JOIN actmov ON actor.ano = actmov.ano
+GROUP BY aname
+having aname like 'SRK';
+
+
+SELECT aname, count( * ) as 'Number of Movies'
+FROM actor
+JOIN actmov ON actor.ano = actmov.ano
+GROUP BY aname
+having aname like 'SRK';

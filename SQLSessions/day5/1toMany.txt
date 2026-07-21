@@ -83,4 +83,7 @@ questions 2) display teamwise sum of runs
 questions 3) display teamwise avergae of runs
 questions 4) display team names whose avg > 40
 
-
+create table emp
+eno int(5) primary key,
+ename varchar(10) not null,
+sal numeric(7,2));
