@@ -22,3 +22,22 @@ FROM actor
 JOIN actmov ON actor.ano = actmov.ano
 GROUP BY aname
 having aname like 'SRK';
+
+
+
+
+1st 
+SELECT *
+FROM actor
+LEFT JOIN actmov ON actor.ano = actmov.ano;
+
+2nd   -- row filter
+SELECT *
+FROM actor
+LEFT JOIN actmov ON actor.ano = actmov.ano
+where mno is null;
+
+SELECT aname  -- column filtering
+FROM actor
+LEFT JOIN actmov ON actor.ano = actmov.ano
+where mno is null;
